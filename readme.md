@@ -1,6 +1,8 @@
-FRONTEND
+# Getting Started
 
-BACKEND
+### FRONTEND
+
+### BACKEND
 
 1. in PHP configuration files, enable:
 
@@ -15,7 +17,7 @@ BACKEND
 
 4. open "backend" folder in terminal and run: "php -S localhost:8000" to run the server locally
 
-DATABASE
+### DATABASE
 
 1. create connection (or change the values in the "config.php" file):
 
