@@ -1,8 +1,16 @@
-PROJECT
+# Info
 
-1. combined frontend and backend to the same repository, didn't see a reason to separate them into different repositories for a test project
+### PROJECT
 
-DATABASE
+1. combined frontend and backend to the same repository, didn't see a reason to separate them into different repositories for a demo project
+
+### FRONTEND
+
+### BACKEND
+
+1. pushed config to github, file is supposed to be private (it is "gitignored"), but pushed it manually for demo purposes
+
+### DATABASE
 
 1. used "ip" as 39 chars long (looked up and found that it is the maximum ip address possible)
 
