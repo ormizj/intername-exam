@@ -1,1 +1,2 @@
+INT-000 = unknown internal server error
 INT-001 = internal sql server error

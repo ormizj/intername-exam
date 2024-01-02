@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="src/modal/modal.css">
 <!--
     
 TemplateMo 562 Space Dynamic
@@ -30,7 +31,8 @@ https://templatemo.com/tm-562-space-dynamic
   </head>
 
 <body>
-  <div class="modal-teleport"></div>
+  <div id="modal-teleport">
+  </div>
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -357,7 +359,7 @@ https://templatemo.com/tm-562-space-dynamic
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
+          <form id="contact" class="contact-form" action="" method="post">
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>
@@ -418,6 +420,10 @@ https://templatemo.com/tm-562-space-dynamic
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/templatemo-custom.js"></script>
+  <script src="src/utils/server-errors.js"></script>
+  <script src="src/modal/modal.js"></script>
+  <script src="src/utils/api.js"></script>
+  <script src="src/utils/get-country.js"></script>
   <script src="src/landing-page/landing-page.js"></script>
 
 </body>
