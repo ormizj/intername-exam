@@ -1,0 +1,5 @@
+LDS-001 = lead with the specified id was not found
+LDS-002 = one of the values of the lead was an empty string
+LDS-003 = lead with the specified email already exists
+LDS-004 = lead is already marked as called
+LDS-005 = all lead filters are empty
