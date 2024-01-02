@@ -39,10 +39,10 @@ foreach ($dummyData as $dummyDatum) {
     $lead['phoneNumber'] = $dummyDatum['phone'];
     $lead['country'] = $dummyDatum['address']['city'];
 
-    // randomize ip;
+    // randomize ip (not accurate);
     $lead['ip'] = long2ip(rand(0, 255 * 255) * rand(0, 255 * 255));
-    $lead['sub1'] = 'search engine';
-    $lead['note'] = 'random information';
+    $lead['sub1'] = 'Media Supreme Admin';
+    $lead['note'] = 'dummy data';
 
     // TODO add url when done in the front-end
     $lead['url'] = 'temp';
