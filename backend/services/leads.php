@@ -1,22 +1,20 @@
 <?php
 
-require_once __DIR__ . '/../router/leads.php';
+require_once __DIR__ . '/../repository/leads.php';
 require_once __DIR__ . '/../utils/header.php';
-require_once __DIR__ . '/../utils/string.php';
 require_once __DIR__ . '/../utils/request.php';
+require_once __DIR__ . '/../models/leads.php';
 
-function create_lead($lead)
+function create_lead($leadData)
 {
-    $validations = ['firstName', 'lastName', 'email', 'phoneNumber', 'ip', 'country', 'url', 'sub1'];
+    $lead = new Lead($leadData);
 
-    foreach ($validations as $validation) {
-        if (is_string_empty($lead[$validation])) {
-            header_422();
-            return gen_error(422, 'LDS-002');
-        }
+    if (!$lead->isValid()) {
+        header_422();
+        return gen_error(422, 'LDS-002');
     }
 
-    $leadByEmail = db_get_lead_email($lead['email']);
+    $leadByEmail = db_get_lead_email($lead->email);
     if (isset($leadByEmail)) {
         header_422();
         return gen_error(422, 'LDS-003');

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../database/database.php';
+require_once __DIR__ . '/../utils/connection.php';
 
 $TABLE_PATH = 'leads_db.leads';
 $TABLE_NAME = 'leads';
@@ -10,15 +10,15 @@ function db_create_lead($lead)
         global $conn;
         global $TABLE_NAME;
 
-        $firstName = $lead['firstName'];
-        $lastName = $lead['lastName'];
-        $email = $lead['email'];
-        $phoneNumber = $lead['phoneNumber'];
-        $ip = $lead['ip'];
-        $country = $lead['country'];
-        $url = $lead['url'];
-        $note = $lead['note'];
-        $sub1 = $lead['sub1'];
+        $firstName = $lead->firstName;
+        $lastName = $lead->lastName;
+        $email = $lead->email;
+        $phoneNumber = $lead->phoneNumber;
+        $ip = $lead->ip;
+        $country = $lead->country;
+        $url = $lead->url;
+        $note = $lead->note;
+        $sub1 = $lead->sub1;
 
         $sql = 'INSERT INTO ' . $TABLE_NAME . ' (first_name, last_name, email, phone_number, ip, country, url, note, sub_1) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';

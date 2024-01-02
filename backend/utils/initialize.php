@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../model/leads.php';
+require_once __DIR__ . '/../services/leads.php';
 
 // init & execute curl
 $ch = curl_init($INIT_URL);

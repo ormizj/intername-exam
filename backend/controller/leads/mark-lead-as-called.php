@@ -6,7 +6,7 @@ $methodType = 'PUT';
 init_header($methodType, true);
 
 require_once __DIR__ . '/../../utils/request.php';
-require_once __DIR__ . '/../../model/leads.php';
+require_once __DIR__ . '/../../services/leads.php';
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
