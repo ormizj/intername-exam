@@ -2,6 +2,7 @@
 
 // general variables
 $CERTIFICATION_URL = "C:/tools/php83/extras/ssl/cacert.pem";
+$CORS_ORIGIN = '*';
 
 // database variables
 $SQL_HOST = '127.0.0.1:3306';

@@ -1,8 +1,11 @@
 <?php
 
+require_once __DIR__ . '/../config.php';
 function init_header($methodType, $isAuth = false)
 {
-    header('Access-Control-Allow-Origin:*');
+    global $CORS_ORIGIN;
+
+    header('Access-Control-Allow-Origin:' . $CORS_ORIGIN);
     header('Content-Type: application/json');
     header('Access-Control-Allow-Method: ' . $methodType);
     header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Request-With' . ($isAuth ? ', Authorization' : ''));

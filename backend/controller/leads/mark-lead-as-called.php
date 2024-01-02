@@ -17,4 +17,4 @@ if ($requestMethod != $methodType) {
 
 $bodyData = get_body_data();
 $result = mark_lead_as_called($bodyData['id']);
-var_dump(json_encode($result));
+echo json_encode($result);

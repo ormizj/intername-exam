@@ -17,4 +17,4 @@ if ($requestMethod != $methodType) {
 
 $bodyData = get_param_data();
 $result = get_leads_by_filter($bodyData);
-var_dump(json_encode($result));
+echo json_encode($result);

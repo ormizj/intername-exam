@@ -2,6 +2,8 @@
 
 ### FRONTEND
 
+1. run the website on a local server (i used IntelliJ) to not get blocked by CORS
+
 ### BACKEND
 
 1. in PHP configuration files, enable:
