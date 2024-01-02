@@ -112,9 +112,12 @@ function db_get_leads_by_filter($filters)
             $conditions[] = 'called = ' . ($isCalled ? '1' : '0');
         }
         if (isset($country)) {
-            $conditions[] = 'country = "' . $country . '"';
+            // case insensitive search
+            $conditions[] = 'LOWER(country) = LOWER("' . $country . '")';
         }
         if (isset($isCreatedToday)) {
+            $isCreatedToday = filter_var($isCreatedToday, FILTER_VALIDATE_BOOLEAN);
+
             // fetch today
             if ($isCreatedToday) {
                 $conditions[] = 'DATE(created_at) = CURDATE()';

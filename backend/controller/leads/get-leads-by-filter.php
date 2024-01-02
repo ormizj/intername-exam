@@ -15,6 +15,6 @@ if ($requestMethod != $methodType) {
     return;
 }
 
-$bodyData = get_body_data();
-$result = get_leads_by_filter($bodyData['filters']);
+$bodyData = get_param_data();
+$result = get_leads_by_filter($bodyData);
 var_dump(json_encode($result));

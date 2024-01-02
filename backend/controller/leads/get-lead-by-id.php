@@ -15,6 +15,6 @@ if ($requestMethod != $methodType) {
     return;
 }
 
-$bodyData = get_body_data();
+$bodyData = get_param_data();
 $result = get_lead_by_id($bodyData['id']);
 var_dump(json_encode($result));

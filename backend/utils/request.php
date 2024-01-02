@@ -2,6 +2,11 @@
 
 require_once __DIR__ . '/../utils/header.php';
 
+function get_param_data()
+{
+    return $_GET;
+}
+
 function get_body_data()
 {
     $json = file_get_contents('php://input');
