@@ -1,3 +1,4 @@
+const errorMessageEl = document.getElementById('error-message');
 const form = document.getElementsByClassName('contact-form')[0]; // getting element by className to avoid refactoring css, because there are duplicate id's in the template with the id of: "contact"
 const nameInput = document.getElementById('name');
 const surnameInput = document.getElementById('surname');
@@ -15,7 +16,7 @@ document.getElementById('form-submit').addEventListener('click', async (event) =
 
     const ip = await getUserPublicIp();
     if (!ip) {
-        openModal('Failed to resolve your public IP, try again later', false);
+        addErrorMessage('Failed to resolve your public IP, try again later');
         return;
     }
 
@@ -50,16 +51,25 @@ const submitLead = async (lead) => {
 
         if (!response.ok) {
             const result = await response.json();
-            openModal(errMsg[result.data], false);
+            addErrorMessage(errMsg[result.data]);
             return false;
         }
 
-        openModal('Form submitted successfully!', true);
+        clearErrorMessage();
+        const msg = `Thank you ${lead.firstName} ${lead.lastName}, we’ll contact you soon`;
+        openModal(msg, true);
         return true;
 
     } catch (error) {
-
-        openModal(errMsg['INT-000'], false);
+        addErrorMessage(errMsg['INT-000']);
         return false;
     }
+}
+
+const addErrorMessage = (message) => {
+    errorMessageEl.textContent = message;
+}
+
+const clearErrorMessage = () => {
+    errorMessageEl.textContent = '';
 }
