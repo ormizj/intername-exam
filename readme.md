@@ -6,6 +6,13 @@
 
 2. run the website ("index.html") on a local server (i used IntelliJ) to not get blocked by CORS
 
+3. to create a lead, the form is at the bottom of the page
+
+4. to access the back-office, there is a button at the top of the page named "Back Office", admin login credentials are located in the "config.php" default values are:
+
+- Username: admin
+- Password: 1234
+
 ### BACKEND
 
 1. in PHP configuration files, enable:
