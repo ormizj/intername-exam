@@ -127,6 +127,7 @@ function db_get_leads_by_filter($filters)
 
         // add conditions
         if (isset($isCalled)) {
+            $isCalled = filter_var($isCalled, FILTER_VALIDATE_BOOLEAN);
             $conditions[] = 'called = ' . ($isCalled ? '1' : '0');
         }
         if (isset($country)) {

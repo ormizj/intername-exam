@@ -1,11 +1,21 @@
 const tableBodyEl = document.getElementById('table-body');
+const filterForm = document.getElementById('filter-form');
+const calledInput = document.getElementById('called-input');
+const createdTodayInput = document.getElementById('created-today-input');
+const countryInput = document.getElementById('country-input');
 
 const pageInit = async () => {
+    await fillTableWithAllLeads();
+}
+
+const fillTableWithAllLeads = async () => {
     const res = await getAllLeads();
     const leads = res.data;
 
-    if (!res.success) return openInfoModal(errMsg[res.data], false);
-
+    if (!res.success) {
+        openInfoModal(errMsg[res.data], false);
+        return false;
+    }
 
     fillLeadsTable(leads)
 }
@@ -76,3 +86,24 @@ const changeLeadCalledStatusToCalled = (leadId) => {
     leadButtonEl.setAttribute('class', 'called-lead');
     leadButtonEl.innerText = 'Yes';
 }
+
+document.getElementById('filter-form-submit').addEventListener('click', async (event) => {
+    event.preventDefault();
+
+    const called = calledInput.value;
+    const createdToday = createdTodayInput.value;
+    const country = countryInput.value;
+
+    const res = await getLeadsByFilter(called, createdToday, country);
+
+    if (!res.success) {
+        openInfoModal(errMsg[res.data]);
+        return false;
+    }
+
+    fillLeadsTable(res.data);
+});
+
+document.getElementById('filter-form-reset').addEventListener('click', async (event) => {
+    await fillTableWithAllLeads();
+});

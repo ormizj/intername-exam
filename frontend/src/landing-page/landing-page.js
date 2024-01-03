@@ -49,7 +49,7 @@ const submitLead = async (lead) => {
         const res = await createLead(lead);
 
         if (!res.success) {
-            addErrorMessage(errMsg[result.data]);
+            addErrorMessage(errMsg[res.data]);
             return false;
         }
 

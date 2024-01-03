@@ -15,7 +15,7 @@ if ($requestMethod != $methodType) {
     return;
 }
 
-$bodyData = get_body_data();
-$bodyData['url'] = $_SERVER['HTTP_REFERER']; // declare full url (unsure if this is what was requested in terms of the lead url)
-$result = create_lead($bodyData);
+$data = get_body_data();
+$data['url'] = $_SERVER['HTTP_REFERER']; // declare full url (unsure if this is what was requested in terms of the lead url)
+$result = create_lead($data);
 echo json_encode($result);

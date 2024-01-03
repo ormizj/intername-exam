@@ -33,7 +33,7 @@ const getLeadById = async (id) => {
 }
 
 const getLeadsByFilter = async (isCalled = '', isCreatedToday = '', country = '') => {
-    const filters = '';
+    let filters = '';
     if (!isStringEmpty(isCalled)) filters += `isCalled=${isCalled}&`;
     if (!isStringEmpty(isCreatedToday)) filters += `isCreatedToday=${isCreatedToday}&`;
     if (!isStringEmpty(country)) filters += `country=${country}&`;
