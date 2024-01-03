@@ -26,6 +26,7 @@ function create_lead($leadData)
         return gen_success(200, $leadId);
 
     } catch (Exception $e) {
+        print_r($e);
         header_500();
         return gen_error(500, 'INT-001');
     }
@@ -51,6 +52,20 @@ function mark_lead_as_called($id)
         return gen_success(200, $result);
 
     } catch (Exception $e) {
+        print_r($e);
+        header_500();
+        return gen_error(500, 'INT-001');
+    }
+}
+
+function get_all_leads()
+{
+    try {
+        $leads = db_get_all_leads();
+        header_200();
+        return gen_success(200, $leads);
+
+    } catch (Exception $e) {
         header_500();
         return gen_error(500, 'INT-001');
     }
@@ -62,6 +77,7 @@ function get_lead_by_id($id)
         $lead = db_get_lead_by_id($id);
 
     } catch (Exception $e) {
+        print_r($e);
         header_500();
         return gen_error(500, 'INT-001');
     }
@@ -98,6 +114,7 @@ function get_leads_by_filter($filters)
         return gen_success(200, $leadId);
 
     } catch (Exception $e) {
+        print_r($e);
         header_500();
         return gen_error(500, 'INT-001');
     }

@@ -2,7 +2,7 @@
 
 // init header and methodType
 require_once __DIR__ . '/../../utils/header.php';
-$methodType = 'POST';
+$methodType = 'GET';
 init_header($methodType, true);
 
 require_once __DIR__ . '/../../utils/request.php';
@@ -15,6 +15,5 @@ if ($requestMethod != $methodType) {
     return;
 }
 
-$bodyData = get_body_data();
-$result = mark_lead_as_called($bodyData['id']);
+$result = get_all_leads();
 echo json_encode($result);

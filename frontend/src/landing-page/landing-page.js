@@ -6,20 +6,25 @@ const emailInput = document.getElementById('email');
 const phoneInput = document.getElementById('phone');
 const messageInput = document.getElementById('message');
 const referrer = document.referrer;
+let ip;
 
 document.getElementById('form-submit').addEventListener('click', async (event) => {
     // check form validity before making any requests
     if (!form.checkValidity()) return;
     event.preventDefault();
 
-    const lead = {};
-
-    const ip = await getUserPublicIp();
+    // if ip was never checked
     if (!ip) {
-        addErrorMessage('Failed to resolve your public IP, try again later');
-        return;
+        ip = await getUserPublicIp();
+
+        // if was unable to get ip from the api
+        if (!ip) {
+            addErrorMessage('Failed to resolve your public IP, try again later');
+            return;
+        }
     }
 
+    const lead = {};
     lead.ip = ip;
     lead.firstName = nameInput.value;
     lead.lastName = surnameInput.value;
@@ -41,23 +46,16 @@ document.getElementById('form-submit').addEventListener('click', async (event) =
 
 const submitLead = async (lead) => {
     try {
-        const response = await fetch('http://localhost:8000/controller/leads/create-lead.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'text/plain',
-            },
-            body: JSON.stringify(lead),
-        });
+        const res = await createLead(lead);
 
-        if (!response.ok) {
-            const result = await response.json();
+        if (!res.success) {
             addErrorMessage(errMsg[result.data]);
             return false;
         }
 
         clearErrorMessage();
         const msg = `Thank you ${lead.firstName} ${lead.lastName}, we’ll contact you soon`;
-        openModal(msg, true);
+        openInfoModal(msg, true);
         return true;
 
     } catch (error) {

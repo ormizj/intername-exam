@@ -2,7 +2,9 @@
 
 ### FRONTEND
 
-1. run the website on a local server (i used IntelliJ) to not get blocked by CORS
+1. change the "config.js" SERVER_PATH to the correct path to the backend server
+
+2. run the website ("index.html") on a local server (i used IntelliJ) to not get blocked by CORS
 
 ### BACKEND
 

@@ -17,7 +17,6 @@ curl_close($ch);
 
 $dummyData = json_decode($response, true);
 
-
 if (!isset($dummyData)) {
     return var_dump('Error decoding dummy data');
 }
@@ -43,9 +42,7 @@ foreach ($dummyData as $dummyDatum) {
     $lead['ip'] = long2ip(rand(0, 255 * 255) * rand(0, 255 * 255));
     $lead['sub1'] = 'Media Supreme Admin';
     $lead['note'] = 'dummy data';
-
-    // TODO add url when done in the front-end
-    $lead['url'] = 'temp';
+    $lead['url'] = 'https://somewebsite.com';
 
     // catching incase of an error (also validates that the data has been put in the DB, if data exists it won't be created cause of the unique email)
     try {

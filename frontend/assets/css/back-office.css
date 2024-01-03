@@ -1,0 +1,81 @@
+.table-container {
+  padding: 2rem 0rem;
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image {
+  td,
+  th {
+    vertical-align: middle;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.header-area .main-nav .logo h4 {
+  line-height: initial;
+}
+
+.called-lead,
+.uncalled-lead,
+.styled-button {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  border-radius: 23px;
+  letter-spacing: 0.25px;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+  width: fit-content;
+  align-self: center;
+}
+
+.called-lead {
+  pointer-events: none;
+  color: black;
+}
+
+.uncalled-lead,
+.styled-button {
+  background-color: #03a4ed;
+}
+
+.uncalled-lead:hover,
+.styled-button:hover {
+  background-color: #fe3f40;
+}
+
+.spacer {
+  height: 100px;
+}
+
+.filter-form {
+  margin-bottom: 20px;
+}
+
+.filter-form > section > label {
+  margin-inline-end: 5px;
+}
+
+.filter-form > section > input,
+.filter-form > section > select {
+  margin-inline-end: 10px;
+}
+
+.filter-form-submit,
+.filter-form-reset {
+  margin-inline-start: 10px;
+}

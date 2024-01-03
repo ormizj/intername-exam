@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Media Supreme Demo</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="../assets/css/fontawesome.css">
+  <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="../assets/css/animated.css">
+  <link rel="stylesheet" href="../assets/css/owl.css">
+  <link rel="stylesheet" href="../assets/css/modal.css">
+  <link rel="stylesheet" href="../assets/css/back-office.css">
+  <!--
+    
+TemplateMo 562 Space Dynamic
+
+https://templatemo.com/tm-562-space-dynamic
+
+-->
+</head>
+
+<body onload="pageInit()">
+  <div id="modal-teleport">
+  </div>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="../index.html" class="logo">
+              <h4>Media<span>Supreme</span></h4>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+
+              <li class="scroll-to-section">
+                <div class="main-red-button"><a href="../index.html">Landing Page</a></div>
+              </li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  <div class="spacer"></div>
+
+  <div class="table-container">
+    <form class="filter-form">
+      <section>
+        <label for="called-input">Called</label>
+        <select name="called-input" id="called-input">
+          <option value="">-</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <label for="created-today-input">Created Today</label>
+        <select name="created-today-input" id="created-today-input">
+          <option value="">-</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <label for="country-input">Country</label>
+        <input type="text" id="country-input" name="country-input" />
+
+        <button class="filter-form-submit styled-button">Filter</button>
+        <button class="filter-form-reset styled-button">Reset</button>
+      </section>
+    </form>
+
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" class="center">ID</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Country</th>
+              <th scope="col">Date</th>
+              <th scope="col" class="center">Called</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>© Copyright 2021 Media Supreme Co. All Rights Reserved.
+
+            <br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/animation.js"></script>
+  <script src="../assets/js/imagesloaded.js"></script>
+  <script src="../assets/js/templatemo-custom.js"></script>
+  <script src="../src/config.js"></script>
+  <script src="../src/utils/string.js"></script>
+  <script src="../src/utils/server-errors.js"></script>
+  <script src="../src/modal/modal.js"></script>
+  <script src="../src/modal/confirm-modal.js"></script>
+  <script src="../src/modal/info-modal.js"></script>
+  <script src="../src/api/external-api.js"></script>
+  <script src="../src/api/leads.js"></script>
+  <script src="../src/utils/get-country.js"></script>
+  <script src="../src/back-office/back-office.js"></script>
+
+</body>
+
+</html>

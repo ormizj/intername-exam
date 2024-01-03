@@ -1,6 +1,6 @@
 <?php
 
-function is_string_empty($string)
+function is_string_empty($str)
 {
-    return strlen(trim($string)) == 0;
+    return strlen(trim($str)) == 0;
 }

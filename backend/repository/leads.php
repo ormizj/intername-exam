@@ -55,6 +55,24 @@ function db_mark_lead_as_called($id)
     }
 }
 
+function db_get_all_leads()
+{
+    try {
+        global $conn;
+        global $TABLE_PATH;
+
+        $sql = 'SELECT * FROM ' . $TABLE_PATH;
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    } catch (Exception $e) {
+        throw $e;
+    }
+}
+
 function db_get_lead_by_id($id)
 {
     try {

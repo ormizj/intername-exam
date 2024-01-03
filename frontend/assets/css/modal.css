@@ -33,7 +33,7 @@
   animation: modalSlideIn 0.3s ease-in-out forwards;
 }
 
-#modal-button {
+.modal-button {
   display: inline-block;
   background-color: #03a4ed;
   font-size: 15px;
@@ -50,7 +50,7 @@
   align-self: center;
 }
 
-#modal-button:hover {
+.modal-button:hover {
   background-color: #fe3f40;
 }
 
@@ -86,4 +86,9 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.modal-button-container {
+  display: flex;
+  justify-content: space-evenly;
 }
