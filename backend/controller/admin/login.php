@@ -18,7 +18,7 @@ if ($requestMethod != $methodType) {
 
 // statically checking password
 $data = get_param_data();
-if ($data['username'] == $ADMIN_USER && $data['password'] == $ADMIN_PASS) {
+if (strtolower($data['username']) == strtolower($ADMIN_USER) && $data['password'] == $ADMIN_PASS) {
     header_200();
     echo json_encode(gen_success(200, []));
 } else {
