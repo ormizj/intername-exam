@@ -1,3 +1,5 @@
+const LEADS_PATH = `${SERVER_IP}/controller/leads`;
+
 const createLead = async (lead) => {
     const response = await fetch(`${LEADS_PATH}/create-lead.php`, {
         method: 'POST',
@@ -5,6 +7,19 @@ const createLead = async (lead) => {
             'Content-Type': 'text/plain',
         },
         body: JSON.stringify(lead),
+    });
+
+    return await response.json();
+}
+
+const markLeadAsCalled = async (id) => {
+
+    const response = await fetch(`${LEADS_PATH}/mark-lead-as-called.php`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain',
+        },
+        body: JSON.stringify({ id: id }),
     });
 
     return await response.json();
@@ -44,19 +59,6 @@ const getLeadsByFilter = async (isCalled = '', isCreatedToday = '', country = ''
         headers: {
             'Content-Type': 'text/plain',
         },
-    });
-
-    return await response.json();
-}
-
-const markLeadAsCalled = async (id) => {
-
-    const response = await fetch(`${LEADS_PATH}/mark-lead-as-called.php`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'text/plain',
-        },
-        body: JSON.stringify({ id: id }),
     });
 
     return await response.json();

@@ -20,6 +20,15 @@ function header_200($message = null)
     header($headerMsg);
 }
 
+function header_401($message = null)
+{
+    $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 401 Unauthorized';
+    if (isset($message)) {
+        $headerMsg .= ' - ' . $message;
+    }
+    header($headerMsg);
+}
+
 function header_404($message = null)
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found';

@@ -71,3 +71,17 @@ const addErrorMessage = (message) => {
 const clearErrorMessage = () => {
     errorMessageEl.textContent = '';
 }
+
+document.getElementById('back-office-button').addEventListener('click', async () => {
+    openLoginModal('Login to an Admin account to continue', async (username, password) => {
+        const res = await loginAdmin(username, password);
+
+        if (!res.success) {
+            openInfoModal(errMsg[res.data], false);
+            return false;
+        }
+
+        // redirect to the back-office if login successful (there isn't protection against manual redirect)
+        window.location.href = 'pages/back-office.html';
+    });
+});

@@ -11,3 +11,7 @@ $SQL_PASS = '1234';
 $SQL_DATABASE = 'leads_db';
 
 $INIT_URL = 'https://jsonplaceholder.typicode.com/users'; // used for creating the database dummy data
+
+// admin login
+$ADMIN_USER = 'admin';
+$ADMIN_PASS = '1234';

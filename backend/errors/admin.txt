@@ -1,0 +1,1 @@
+ADM-001 = admin login was unsuccessful, either username or password were incorrect

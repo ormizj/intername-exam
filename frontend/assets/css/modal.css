@@ -92,3 +92,12 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.username-label {
+  margin-bottom: 10px;
+}
+
+.username-label,
+.password-label {
+  width: 100px;
+}

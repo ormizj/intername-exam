@@ -321,6 +321,10 @@ header
   color: #1e1e1e !important;
 }
 
+#back-office-button {
+  cursor: pointer;
+}
+
 .background-header .main-nav .nav li:hover a {
   color: #fe3f40 !important;
 }
