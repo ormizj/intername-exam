@@ -4,6 +4,8 @@
 
 1. combined frontend and backend to the same repository, didn't see a reason to separate them into different repositories for a demo project
 
+2. avoided using technologies that were not noted in the assignment file, only used: PHP, JS, HTML, CSS, MySQL, jQuery was used in the template i downloaded, but i didn't use it personally
+
 ### FRONTEND
 
 ### BACKEND
