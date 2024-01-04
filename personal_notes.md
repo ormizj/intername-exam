@@ -6,11 +6,11 @@
 
 2. avoided using technologies that were not noted in the assignment file, only used: PHP, JS, HTML, CSS, MySQL, jQuery was used in the template i downloaded, but i didn't use it personally
 
+3. uploaded the config files into the repository for demo purposes
+
 ### FRONTEND
 
 ### BACKEND
-
-1. pushed config to github, file is supposed to be private (it is "gitignored"), but pushed it manually for demo purposes
 
 ### DATABASE
 
