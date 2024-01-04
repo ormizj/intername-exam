@@ -93,7 +93,8 @@
   justify-content: space-evenly;
 }
 
-.username-label {
+.username-label,
+.password-label {
   margin-bottom: 10px;
 }
 
