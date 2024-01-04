@@ -4,7 +4,13 @@ require_once __DIR__ . '/../utils/connection.php';
 
 $TABLE_PATH = 'leads_db.leads';
 $TABLE_NAME = 'leads';
-function db_create_lead($lead)
+
+/**
+ * @param $lead Lead containing all the required attributes to be created
+ * @return int
+ * @throws Exception mysqli_sql_exception
+ */
+function db_create_lead(Lead $lead): int
 {
     try {
         global $conn;
@@ -31,11 +37,17 @@ function db_create_lead($lead)
         return $stmt->insert_id;
 
     } catch (Exception $e) {
+        print_r($e);
         throw $e;
     }
 }
 
-function db_mark_lead_as_called($id)
+/**
+ * @param $id int of an existing {Lead} (preferred with called value of "0")
+ * @return true if the action was successful
+ * @throws Exception mysqli_sql_exception
+ */
+function db_mark_lead_as_called(int $id): bool
 {
     try {
         global $conn;
@@ -51,11 +63,16 @@ function db_mark_lead_as_called($id)
         return true;
 
     } catch (Exception $e) {
+        print_r($e);
         throw $e;
     }
 }
 
-function db_get_all_leads()
+/**
+ * @return array containing all the {Lead}'s in the database
+ * @throws Exception mysqli_sql_exception
+ */
+function db_get_all_leads(): array
 {
     try {
         global $conn;
@@ -69,11 +86,17 @@ function db_get_all_leads()
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
     } catch (Exception $e) {
+        print_r($e);
         throw $e;
     }
 }
 
-function db_get_lead_by_id($id)
+/**
+ * @param $id int of a Lead (prefer existing {Lead})
+ * @return array|null {Lead} if a Lead was found, else {null}
+ * @throws Exception mysqli_sql_exception
+ */
+function db_get_lead_by_id(int $id): ?array
 {
     try {
         global $conn;
@@ -88,11 +111,17 @@ function db_get_lead_by_id($id)
         return $stmt->get_result()->fetch_assoc();
 
     } catch (Exception $e) {
+        print_r($e);
         throw $e;
     }
 }
 
-function db_get_lead_email($email)
+/**
+ * @param $email string of a Lead (prefer existing email)
+ * @return array|null {Lead} if a Lead with the specified {$email} was found, else {null}
+ * @throws Exception mysqli_sql_exception
+ */
+function db_get_lead_email(string $email): ?array
 {
     try {
         global $conn;
@@ -107,11 +136,17 @@ function db_get_lead_email($email)
         return $stmt->get_result()->fetch_assoc();
 
     } catch (Exception $e) {
+        print_r($e);
         throw $e;
     }
 }
 
-function db_get_leads_by_filter($filters)
+/**
+ * @param $filters array {isCalled string = null, isCreatedToday string = null, country string = null} criteria to filter
+ * @return array containing all the found {Lead}s based on the filters
+ * @throws Exception mysqli_sql_exception
+ */
+function db_get_leads_by_filter(array $filters): array
 {
     try {
         global $conn;
@@ -157,6 +192,7 @@ function db_get_leads_by_filter($filters)
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
     } catch (Exception $e) {
+        print_r($e);
         throw $e;
     }
 }

@@ -2,30 +2,46 @@
 
 require_once __DIR__ . '/../utils/header.php';
 
-function get_param_data()
+/**
+ * @return array of the client's params
+ */
+function get_param_data(): array
 {
     return $_GET;
 }
 
-function get_body_data()
+/**
+ * @return array of the client's request body
+ */
+function get_body_data(): array
 {
     $json = file_get_contents('php://input');
     return json_decode($json, true);
 }
 
-function method_not_allowed()
+/**
+ * @return array of a resolved request
+ */
+function method_not_allowed(): array
 {
-    $obj = [
+    $res = [
         'success' => false,
         'status' => 405,
         'message' => $_SERVER['REQUEST_METHOD'] . ' Method Not Allowed',
     ];
 
     header_405();
-    return json_encode($obj);
+    return $res;
 }
 
-function gen_success($status, $data)
+/**
+ * response depicting a successful operation
+ *
+ * @param $status int HTTP response status codes
+ * @param $data mixed that will return to the client
+ * @return array of a resolved request
+ */
+function gen_success(int $status, mixed $data): array
 {
     return [
         'success' => true,
@@ -34,7 +50,14 @@ function gen_success($status, $data)
     ];
 }
 
-function gen_error($status, $data)
+/**
+ * response depicting a failed operation
+ *
+ * @param $status int HTTP response status codes
+ * @param $data mixed that will return to the client
+ * @return array of a resolved request
+ */
+function gen_error(int $status, mixed $data): array
 {
     return [
         'success' => false,

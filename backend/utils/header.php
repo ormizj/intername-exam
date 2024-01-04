@@ -1,7 +1,13 @@
 <?php
 
 require_once __DIR__ . '/../config.php';
-function init_header($methodType, $isAuth = false)
+
+/**
+ * @param $methodType string what method type the request should expect (E.G. "GET")
+ * @param $isAuth bool {true} if to add the "Authorization" option into the header
+ * @return void
+ */
+function init_header(string $methodType, bool $isAuth = false): void
 {
     global $CORS_ORIGIN;
 
@@ -11,7 +17,11 @@ function init_header($methodType, $isAuth = false)
     header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Request-With' . ($isAuth ? ', Authorization' : ''));
 }
 
-function header_200($message = null)
+/**
+ * @param $message string|null to append in the header
+ * @return void
+ */
+function header_200(string $message = null): void
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 200 OK';
     if (isset($message)) {
@@ -20,7 +30,11 @@ function header_200($message = null)
     header($headerMsg);
 }
 
-function header_401($message = null)
+/**
+ * @param $message string|null to append in the header
+ * @return void
+ */
+function header_401(string $message = null): void
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 401 Unauthorized';
     if (isset($message)) {
@@ -29,7 +43,11 @@ function header_401($message = null)
     header($headerMsg);
 }
 
-function header_404($message = null)
+/**
+ * @param $message string|null to append in the header
+ * @return void
+ */
+function header_404(string $message = null): void
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found';
     if (isset($message)) {
@@ -38,7 +56,11 @@ function header_404($message = null)
     header($headerMsg);
 }
 
-function header_405($message = null)
+/**
+ * @param $message string|null to append in the header
+ * @return void
+ */
+function header_405(string $message = null): void
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 405 Method Not Allowed';
     if (isset($message)) {
@@ -47,7 +69,11 @@ function header_405($message = null)
     header($headerMsg);
 }
 
-function header_409($message = null)
+/**
+ * @param $message string|null to append in the header
+ * @return void
+ */
+function header_409(string $message = null): void
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 409 Conflict';
     if (isset($message)) {
@@ -56,7 +82,11 @@ function header_409($message = null)
     header($headerMsg);
 }
 
-function header_422($message = null)
+/**
+ * @param $message string|null to append in the header
+ * @return void
+ */
+function header_422(string $message = null): void
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 422 Unprocessable Content';
     if (isset($message)) {
@@ -65,7 +95,11 @@ function header_422($message = null)
     header($headerMsg);
 }
 
-function header_500($message = null)
+/**
+ * @param $message string|null to append in the header
+ * @return void
+ */
+function header_500(string $message = null): void
 {
     $headerMsg = $_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error';
     if (isset($message)) {

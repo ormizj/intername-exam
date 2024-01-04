@@ -3,6 +3,9 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../services/leads.php';
 
+global $INIT_URL;
+global $CERTIFICATION_URL;
+
 // init & execute curl
 $ch = curl_init($INIT_URL);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -18,7 +21,8 @@ curl_close($ch);
 $dummyData = json_decode($response, true);
 
 if (!isset($dummyData)) {
-    return var_dump('Error decoding dummy data');
+    var_dump('Error decoding dummy data');
+    return;
 }
 
 // iterating creation in database instead of batch, 
@@ -44,7 +48,7 @@ foreach ($dummyData as $dummyDatum) {
     $lead['note'] = 'dummy data';
     $lead['url'] = 'https://somewebsite.com';
 
-    // catching incase of an error (also validates that the data has been put in the DB, if data exists it won't be created cause of the unique email)
+    // catching in-case of an error (also validates that the data has been put in the DB, if data exists it won't be created cause of the unique email)
     try {
         $createdId = create_lead($lead);
         print_r($createdId);

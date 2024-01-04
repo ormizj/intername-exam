@@ -3,36 +3,42 @@
 require_once __DIR__ . "/../utils/string.php";
 class Lead
 {
-    public $id;
-    public $firstName;
-    public $lastName;
-    public $email;
-    public $phoneNumber;
-    public $ip;
-    public $country;
-    public $url;
-    public $note;
-    public $sub1;
-    public $called;
-    public $createdAt;
+    public int $id;
+    public string $firstName;
+    public string $lastName;
+    public string $email;
+    public string $phoneNumber;
+    public string $ip;
+    public string $country;
+    public string $url;
+    public string $note;
+    public string $sub1;
+    public bool|null $called;
+    public mixed $createdAt;
 
-    public function __construct($data)
+    /**
+     * @param $data array {id, firstName, lastName, email, phoneNumber, ip, country, url, note, sub1, called, createdAt}
+     */
+    public function __construct(array $data)
     {
-        $this->id = $data['id'] ?? null;
-        $this->firstName = $data['firstName'] ?? null;
-        $this->lastName = $data['lastName'] ?? null;
-        $this->email = $data['email'] ?? null;
-        $this->phoneNumber = $data['phoneNumber'] ?? null;
-        $this->ip = $data['ip'] ?? null;
-        $this->country = $data['country'] ?? null;
-        $this->url = $data['url'] ?? null;
-        $this->note = $data['note'] ?? null;
-        $this->sub1 = $data['sub1'] ?? null;
+        $this->id = $data['id'] ?? 0;
+        $this->firstName = $data['firstName'] ?? '';
+        $this->lastName = $data['lastName'] ?? '';
+        $this->email = $data['email'] ?? '';
+        $this->phoneNumber = $data['phoneNumber'] ?? '';
+        $this->ip = $data['ip'] ?? '';
+        $this->country = $data['country'] ?? '';
+        $this->url = $data['url'] ?? '';
+        $this->note = $data['note'] ?? '';
+        $this->sub1 = $data['sub1'] ?? '';
         $this->called = $data['called'] ?? null;
         $this->createdAt = $data['createdAt'] ?? null;
     }
 
-    public function isValid()
+    /**
+     * @return bool {true} if all the needed fields of a "lead" are needed, to create a new field
+     */
+    public function isValid(): bool
     {
         $validations = ['firstName', 'lastName', 'email', 'phoneNumber', 'ip', 'country', 'url'];
         foreach ($validations as $validation) {
