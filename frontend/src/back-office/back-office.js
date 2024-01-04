@@ -27,15 +27,15 @@ const fillLeadsTable = (leads) => {
     if (leads.length === 0) return openInfoModal('No leads found!', false);
 
     for (const lead of leads) {
-        const leadRow = getLeadRow(lead);
-        newTableBody += leadRow;
+        const leadRow = getLeadRowHtml(lead);
+        newTableBody = leadRow + newTableBody;
     }
 
     tableBodyEl.innerHTML = newTableBody;
     addCallLeadEvent();
 }
 
-const getLeadRow = (lead) => {
+const getLeadRowHtml = (lead) => {
     const leadRowHtml = `
     <tr class="${lead.called ? 'called' : 'not-called'}" lead-id="${lead.id}" id=lead-${lead.id}>
         <th scope="row" class="center">${lead.id}</th>
