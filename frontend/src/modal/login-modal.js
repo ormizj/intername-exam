@@ -7,11 +7,11 @@ const loginModalHtml = `
   <form>
     <label class="username-label" for="username-input">Username</label> <input id="username-input" name="username-input"/>
     <label class="password-label" for="password-input">Password</label> <input id="password-input" name="password-input"/>
-  </form>
   <div class="modal-button-container">
     <button type="submit" id="modal-button-accept" class="modal-button">Login</button>
     <button id="modal-button-cancel" class="modal-button">Cancel</button>
   </div>
+  </form>
 </div>
 `;
 
