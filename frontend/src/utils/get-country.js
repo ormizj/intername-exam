@@ -1,3 +1,4 @@
+// function i found online, author: diego fortes ("https://codepen.io/diego-fortes/pen/YzEPxYw")
 function getCountry() {
     var countries = {
         AD: "Andorra",
